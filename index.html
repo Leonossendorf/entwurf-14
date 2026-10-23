@@ -37,33 +37,38 @@
 <section class="hero" aria-labelledby="hero-titel" style="padding:0">
   <div class="hero-bild" role="img" aria-label="Festsaal im Restaurant Nienhaus mit gedeckten runden Tischen"></div>
   <div class="wrap">
-    <div>
-      <span class="skript">Seit über 50 Jahren in Gronau</span>
-      <h1 id="hero-titel">Alle Neune unter einem Dach.</h1>
-      <p class="lead">Festsaal für bis zu 180 Gäste, zwei Bundeskegelbahnen, Gastraum und Biergarten. Gutbürgerliche Küche und Bier frisch vom Fass.</p>
-      <div class="knoepfe">
-        <a class="btn rot" href="#anfrage" data-anlass="">Feier oder Kegelbahn anfragen</a>
-        <a class="btn hell" href="tel:+4925623853"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>02562 3853</a>
+    <div class="intro">
+      <div>
+        <span class="skript">Seit über 50 Jahren in Gronau</span>
+        <h1 id="hero-titel">Alle Neune unter einem Dach.</h1>
       </div>
-      <div class="fakten">
-        <div><b>180</b>Gäste im Festsaal</div>
-        <div><b>2</b>Bundeskegelbahnen</div>
-        <div><b>3</b>Biere vom Fass</div>
+      <div>
+        <p class="lead">Festsaal für bis zu 180 Gäste, zwei Bundeskegelbahnen, Gastraum und Biergarten. Gutbürgerliche Küche und Bier frisch vom Fass.</p>
+        <div class="knoepfe">
+          <a class="btn rot" href="#anfrage" data-anlass="">Feier oder Kegelbahn anfragen</a>
+          <a class="btn hell" href="tel:+4925623853"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>02562 3853</a>
+        </div>
       </div>
     </div>
 
     <div class="bahn" id="bahn">
-      <div class="bahn-kopf"><p>Was Sie bei uns finden</p><span>Tippen Sie einen Kegel an</span></div>
-      <svg class="kegelbild" id="kegelbild" viewBox="110 128 380 272" role="group" aria-label="Neun Kegel, jeder steht für etwas, das Sie im Restaurant Nienhaus finden"></svg>
-      <div class="karte-kegel" aria-live="polite">
-        <div class="bild" id="kk-bild"></div>
-        <div class="inhalt" id="kk-inhalt">
-          <span class="nr" id="kk-nr"></span>
-          <h3 id="kk-titel"></h3>
-          <p id="kk-text"></p>
-          <a href="#feiern" id="kk-link"></a>
-        </div>
+      <div class="bahn-bild">
+        <div class="bahn-kopf"><p>Was Sie bei uns finden</p><span>Kegel oder Namen antippen</span></div>
+        <svg class="kegelbild" id="kegelbild" viewBox="110 128 380 272" preserveAspectRatio="xMidYMax slice" role="group" aria-label="Neun Kegel, jeder steht für etwas, das Sie im Restaurant Nienhaus finden"></svg>
       </div>
+      <div class="bahn-info">
+        <div class="karte-kegel" id="karte-kegel" aria-live="polite">
+          <div class="bild" id="kk-bild"></div>
+          <div class="inhalt" id="kk-inhalt">
+            <span class="nr" id="kk-nr"></span>
+            <h3 id="kk-titel"></h3>
+            <p id="kk-text"></p>
+            <a href="#feiern" id="kk-link"></a>
+          </div>
+        </div>
+        <ol class="legende" id="legende" aria-label="Alle neun Kegel"></ol>
+      </div>
+      <svg class="verbinder" id="verbinder" aria-hidden="true"><path id="verbinder-linie"/><circle id="verbinder-a" r="5"/><circle id="verbinder-b" r="5"/></svg>
     </div>
   </div>
 </section>
@@ -241,16 +246,16 @@
       <h2 id="vereine-titel">Gute Freunde des Hauses.</h2>
       <p>Mit diesen Vereinen sind wir befreundet. Für Vereinssitzung, Jahresfeier oder Kegeltreff haben wir den passenden Raum und die Bewirtung dazu.</p>
     </div>
-    <div class="wimpelleine">
-      <ul class="wimpel">
-        <li><div class="stoff"><b>Schützenverein</b><span>Schöttelkotterhook – Tiekerhook – Eßseite 1925 e.V.</span></div></li>
-        <li><div class="stoff"><b>Karnevalsfreunde Gronau</b><span>„Grün-Weiß“ e.V.</span></div></li>
-        <li><div class="stoff"><b>Münsterländer Dinkelfunken</b><span>e.V., gegründet 2019</span></div></li>
-        <li><div class="stoff"><b>Eilbote Gronau</b><span>seit 1931</span></div></li>
-        <li><div class="stoff"><b>Treu der Freiheit</b><span>Gronau, seit 1970</span></div></li>
-        <li><div class="stoff"><b>Boxsportverein Siegfried</b><span>26 e.V. Gronau</span></div></li>
-        <li><div class="stoff"><b>Gronauer Shanty-Chor</b><span>&nbsp;</span></div></li>
-        <li><div class="stoff"><b>Singles-Aktiv-Spezial</b><span>&nbsp;</span></div></li>
+    <div class="wimpelwand">
+      <ul class="wimpel" id="wimpel">
+        <li data-stoff="#2D6A3A" data-schrift="#FFF7E8" data-akzent="#E2C88E" data-name="Schützenverein" data-sub="Schöttelkotterhook –|Tiekerhook – Eßseite|1925 e.V."></li>
+        <li data-stoff="#F7F3EA" data-schrift="#2D6A3A" data-akzent="#3D8A4A" data-name="Karnevals-|freunde Gronau" data-sub="„Grün-Weiß“ e.V."></li>
+        <li data-stoff="#7A1F2B" data-schrift="#F3DCA4" data-akzent="#E2C88E" data-name="Münsterländer|Dinkelfunken" data-sub="e.V. · 2019"></li>
+        <li data-stoff="#2F7BC4" data-schrift="#FFFFFF" data-akzent="#F4F7FB" data-name="Eilbote|Gronau" data-sub="seit 1931"></li>
+        <li data-stoff="#F7F3EA" data-schrift="#1E5DB0" data-akzent="#5B93D6" data-name="Treu der|Freiheit" data-sub="Gronau · 1970"></li>
+        <li data-stoff="#262626" data-schrift="#FFFFFF" data-akzent="#D9B568" data-name="Boxsportverein|Siegfried" data-sub="26 e.V. Gronau"></li>
+        <li data-stoff="#1C3D6E" data-schrift="#FFFFFF" data-akzent="#F4F7FB" data-name="Gronauer|Shanty-Chor" data-sub=""></li>
+        <li data-stoff="#C8462A" data-schrift="#FFF7E8" data-akzent="#F0CF84" data-name="Singles-|Aktiv-Spezial" data-sub=""></li>
       </ul>
     </div>
   </div>

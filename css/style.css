@@ -51,41 +51,58 @@ p { margin: 0 0 1em; }
 /* Hero mit Kegelbild */
 .hero { position: relative; color: #fff; background: var(--holz); overflow: hidden; }
 .hero-bild { position: absolute; inset: 0; background: url("../img/hero.jpg") center 40% / cover; }
-.hero-bild::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(30,17,11,.94) 0%, rgba(30,17,11,.82) 42%, rgba(30,17,11,.55) 100%), linear-gradient(0deg, rgba(30,17,11,.7), rgba(30,17,11,0) 40%); }
-.hero .wrap { position: relative; display: grid; grid-template-columns: 1fr 1.08fr; gap: 40px; align-items: center; padding-top: 56px; padding-bottom: 60px; }
-.hero .skript { font-size: 34px; color: var(--gold-hell); display: block; margin-bottom: 14px; }
-.hero h1 { font-size: clamp(42px, 5.6vw, 72px); line-height: 1.02; }
-.hero .lead { font-size: 19px; line-height: 1.55; color: #EFE4D2; max-width: 30em; margin: 20px 0 28px; }
+.hero-bild::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30,17,11,.78) 0%, rgba(30,17,11,.88) 45%, rgba(26,15,10,.97) 100%); }
+.hero .wrap { position: relative; padding-top: 46px; padding-bottom: 56px; }
+.intro { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: end; margin-bottom: 34px; }
+.hero .skript { font-size: 32px; color: var(--gold-hell); display: block; margin-bottom: 12px; }
+.hero h1 { font-size: clamp(40px, 5.2vw, 68px); line-height: 1.02; }
+.hero .lead { font-size: 18.5px; line-height: 1.55; color: #EFE4D2; margin: 0 0 22px; }
 .hero .knoepfe { display: flex; flex-wrap: wrap; gap: 12px; }
-.fakten { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.18); }
-.fakten div { font-size: 14px; color: #D9CBB3; }
-.fakten b { display: block; font: 400 26px/1.1 var(--serif); color: #fff; }
 
-/* Kegelbild */
-.bahn { position: relative; background: linear-gradient(180deg, #24160F, #1A0F0A); border-radius: 18px; box-shadow: 0 30px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(226,200,142,.18); overflow: hidden; }
-.bahn-kopf { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 20px 0; }
+/* Kegelbild mit Beschreibung rechts */
+.bahn { position: relative; display: grid; grid-template-columns: 1.12fr 1fr; gap: 0; background: linear-gradient(180deg, #24160F, #1A0F0A); border-radius: 18px; box-shadow: 0 30px 60px rgba(0,0,0,.45), inset 0 0 0 1px rgba(226,200,142,.18); }
+.bahn-bild { position: relative; border-radius: 18px 0 0 18px; overflow: hidden; display: flex; background: #1A0F0A; }
+.bahn-kopf { position: absolute; left: 0; right: 0; top: 0; z-index: 2; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 16px 20px; background: linear-gradient(180deg, rgba(20,11,7,.85), rgba(20,11,7,0)); }
 .bahn-kopf p { margin: 0; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-hell); font-weight: 700; }
-.bahn-kopf span { font-size: 13px; color: #BBA98E; }
-.kegelbild { display: block; width: 100%; height: auto; }
+.bahn-kopf span { font-size: 13.5px; color: #D9C7A6; display: inline-flex; align-items: center; gap: 6px; }
+.kegelbild { display: block; width: 100%; height: 100%; min-height: 380px; }
 .kegel { cursor: pointer; outline: none; }
 .kegel .koerper { transition: transform .45s cubic-bezier(.2,.7,.2,1); transform-box: fill-box; transform-origin: 50% 100%; }
 .kegel:hover .koerper, .kegel:focus-visible .koerper { transform: translateY(-3px); }
-.kegel.aktiv .koerper { transform: translateY(-7px); }
+.kegel.aktiv .koerper { transform: translateY(-6px); }
+.kegel .haut { transition: fill .35s ease; }
+.kegel.aktiv .haut { fill: url(#pinRot); }
+.kegel.aktiv .band { fill: #F3E4CF; }
+.spur { fill: none; stroke: #C9414E; stroke-width: 2.6; stroke-linecap: round; opacity: .9; }
+.kegel .zahl { font-family: var(--serif); font-size: 15px; fill: #6B1E28; transition: fill .35s ease; pointer-events: none; }
+.kegel.aktiv .zahl { fill: #FFF3E2; }
 .kegel .glanz { opacity: 0; transition: opacity .45s ease; }
 .kegel.aktiv .glanz { opacity: 1; }
-.kegel:focus-visible .ring { stroke: var(--gold-hell); stroke-width: 2; }
 .kegel .ring { fill: none; stroke: transparent; }
+.kegel:focus-visible .ring { stroke: var(--gold-hell); stroke-width: 2; }
 .kegel-start .koerper { opacity: 0; transform: translateY(-10px); }
 .kegel-start.da .koerper { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
-.karte-kegel { display: grid; grid-template-columns: 150px 1fr; gap: 16px; margin: 0 16px 16px; padding: 12px; background: var(--papier); color: var(--ink); border-radius: 12px; min-height: 124px; }
-.karte-kegel .bild { border-radius: 8px; background: var(--sand) center / cover; min-height: 100px; position: relative; overflow: hidden; }
-.karte-kegel .bild.leer { display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px; font-size: 12.5px; line-height: 1.35; color: var(--ink-2); background: repeating-linear-gradient(135deg, #F4EBDC 0 10px, #EFE4D1 10px 20px); border: 1.5px dashed #CDB98F; }
-.karte-kegel h3 { font-size: 23px; color: var(--bordeaux); margin: 2px 0 4px; }
-.karte-kegel p { font-size: 15px; line-height: 1.5; margin: 0; color: var(--ink-2); }
-.karte-kegel .nr { font: 700 11px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
-.karte-kegel a { font-weight: 700; font-size: 14.5px; display: inline-block; margin-top: 6px; }
-.karte-kegel .inhalt { transition: opacity .3s ease; }
-.karte-kegel .inhalt.weg { opacity: 0; }
+
+.bahn-info { padding: 22px 22px 22px 34px; display: flex; flex-direction: column; gap: 16px; }
+.karte-kegel { background: var(--papier); color: var(--ink); border-radius: 12px; overflow: hidden; box-shadow: 0 0 0 2px rgba(184,50,63,.0); transition: box-shadow .35s ease; }
+.karte-kegel.aktiv { box-shadow: 0 0 0 2px #B8323F; }
+.karte-kegel .bild { aspect-ratio: 16 / 7; background: var(--sand) center / cover; position: relative; transition: opacity .3s ease; }
+.karte-kegel .bild.leer { display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px; font-size: 14px; line-height: 1.35; color: var(--ink-2); background: repeating-linear-gradient(135deg, #F4EBDC 0 10px, #EFE4D1 10px 20px); }
+.karte-kegel .inhalt { padding: 14px 18px 16px; transition: opacity .3s ease; min-height: 150px; }
+.karte-kegel .inhalt.weg, .karte-kegel .bild.weg { opacity: 0; }
+.karte-kegel h3 { font-size: 24px; color: var(--bordeaux); margin: 4px 0 6px; }
+.karte-kegel p { font-size: 15.5px; line-height: 1.5; margin: 0; color: var(--ink-2); }
+.karte-kegel .nr { font: 700 11.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #B8323F; }
+.karte-kegel a { font-weight: 700; font-size: 15px; display: inline-block; margin-top: 8px; }
+.legende { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.legende button { width: 100%; display: flex; align-items: center; gap: 8px; text-align: left; font: 600 13.5px/1.2 var(--sans); color: #E9DCC4; background: rgba(255,255,255,.05); border: 1px solid rgba(226,200,142,.2); border-radius: 9px; padding: 8px 9px; min-height: 42px; cursor: pointer; transition: background .25s, border-color .25s, color .25s; }
+.legende button:hover { border-color: rgba(226,200,142,.5); }
+.legende button b { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: #EFE6D4; color: var(--bordeaux); font: 400 13px/1 var(--serif); }
+.legende button[aria-pressed="true"] { background: #8E2430; border-color: #B8323F; color: #fff; }
+.legende button[aria-pressed="true"] b { background: #fff; }
+.verbinder { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; z-index: 3; }
+.verbinder path { fill: none; stroke: #C9414E; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: stroke-dashoffset .5s ease; }
+.verbinder circle { fill: #C9414E; stroke: #FFF3E2; stroke-width: 2; }
 
 /* Abschnitte */
 section { padding: 88px 0; }
@@ -174,24 +191,21 @@ section { padding: 88px 0; }
 .buffet-bilder img:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
 .klein { font-size: 13.5px; color: var(--ink-2); margin-top: 12px; }
 
-/* Vereine */
-.vereine { background: var(--creme); padding-bottom: 70px; }
-.wimpelleine { position: relative; }
-.wimpel { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px 18px; }
-.wimpel li { position: relative; padding-top: 10px; }
-.wimpel li::before { content: ""; position: absolute; left: -10px; right: -10px; top: 0; height: 2px; background: #8A6D43; border-radius: 2px; }
-.wimpel li::after { content: ""; position: absolute; left: 50%; top: -3px; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: #6E5532; }
-.wimpel .stoff { position: relative; padding: 20px 14px 46px; color: #fff; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 72%, 50% 100%, 0 72%); min-height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; background-image: linear-gradient(100deg, rgba(255,255,255,.13), rgba(255,255,255,0) 40%, rgba(0,0,0,.14)); }
-.wimpel b { font: 400 19px/1.15 var(--serif); }
-.wimpel span { font-size: 13px; opacity: .9; margin-top: 6px; line-height: 1.3; }
-.wimpel li:nth-child(8n+1) .stoff { background-color: #2E6B3A; }
-.wimpel li:nth-child(8n+2) .stoff { background-color: #3D7A44; }
-.wimpel li:nth-child(8n+3) .stoff { background-color: var(--bordeaux); }
-.wimpel li:nth-child(8n+4) .stoff { background-color: #2F6FB3; }
-.wimpel li:nth-child(8n+5) .stoff { background-color: #1F55A0; }
-.wimpel li:nth-child(8n+6) .stoff { background-color: #3A3A3A; }
-.wimpel li:nth-child(8n+7) .stoff { background-color: #1D3F6B; }
-.wimpel li:nth-child(8n+8) .stoff { background-color: #B04A2E; }
+/* Vereine: Wimpelwand */
+.vereine { background: var(--creme); padding-bottom: 80px; }
+.wimpelwand { position: relative; border-radius: 16px; padding: 34px 30px 46px; overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255,220,170,.10), rgba(0,0,0,0) 30%, rgba(0,0,0,.25)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.32' numOctaves='4' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.06 0 0 0 0 0.02 2.2 0 0 0 -0.95'/%3E%3C/filter%3E%3Crect width='400' height='300' filter='url(%23g)'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.28) 0 2px, rgba(255,235,200,.06) 2px 3px, transparent 3px 118px),
+    linear-gradient(90deg, #6A4428, #7C5231 30%, #6E472A 60%, #7A5030);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.3), inset 0 18px 30px rgba(0,0,0,.25), 0 16px 34px rgba(60,35,20,.18); }
+.wimpel { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px 26px; }
+.wimpel li { transform-origin: 50% 3%; }
+.wimpel li:nth-child(odd) { transform: rotate(-1.2deg); }
+.wimpel li:nth-child(even) { transform: rotate(.9deg); }
+.wimpel li:nth-child(3n) { transform: rotate(-.4deg); }
+.wimpel svg { display: block; width: 100%; height: auto; filter: drop-shadow(0 10px 9px rgba(0,0,0,.38)) drop-shadow(0 2px 2px rgba(0,0,0,.3)); }
 
 /* Besuch */
 .besuch { background: var(--papier); }
@@ -217,11 +231,16 @@ section { padding: 88px 0; }
 
 @media (max-width: 1020px) {
   .nav { display: none; }
-  .hero .wrap { grid-template-columns: 1fr; gap: 30px; padding-top: 34px; }
+  .intro { grid-template-columns: 1fr; gap: 18px; }
+  .bahn { grid-template-columns: 1fr; }
+  .bahn-bild { border-radius: 18px 18px 0 0; }
+  .kegelbild { height: auto; min-height: 0; aspect-ratio: 380 / 272; }
+  .bahn-info { padding: 18px 16px 18px; }
   .feiern-grid, .anfrage-grid, .kegeln-grid, .karte-grid { grid-template-columns: 1fr; }
   .vorschau { position: static; }
   .besuch-grid { grid-template-columns: 1fr; }
   .wimpel { grid-template-columns: repeat(2, 1fr); }
+  .wimpelwand { padding: 26px 18px 34px; }
   .fuss .wrap { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
@@ -230,24 +249,23 @@ section { padding: 88px 0; }
   .kopf .wrap { height: 62px; gap: 12px; }
   .kopf .btn, .status { display: none; }
   .logo b { font-size: 24px; }
-  .hero .skript { font-size: 28px; }
+  .hero .skript { font-size: 27px; }
+  .hero .wrap { padding-top: 30px; padding-bottom: 36px; }
+  .intro { margin-bottom: 22px; }
+  .legende { grid-template-columns: 1fr 1fr; }
+  .kegelbild { aspect-ratio: 300 / 252; }
+  .legende button { font-size: 13px; padding: 7px 8px; }
+  .karte-kegel .inhalt { min-height: 0; }
   .hero .lead { font-size: 17.5px; }
   .hero .knoepfe .btn { flex: 1 1 100%; }
-  .fakten { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .fakten div { font-size: 13px; line-height: 1.3; }
-  .fakten b { font-size: 24px; }
-  .bahn-kopf { flex-wrap: wrap; gap: 2px 10px; }
-  .karte-kegel { grid-template-columns: 1fr; margin: 0 10px 10px; }
-  .karte-kegel .bild { min-height: 150px; }
-  .bahn-kopf { padding: 14px 14px 0; }
+  .bahn-kopf { position: static; padding: 12px 14px 4px; flex-wrap: wrap; background: none; }
+  .bahn-bild { flex-direction: column; }
   .formular { padding: 20px 16px; }
   .felder { grid-template-columns: 1fr; }
   .kegel-fotos { aspect-ratio: 4 / 5; grid-template-columns: 1fr 1fr; grid-template-rows: 1.3fr 1fr; }
   .kegel-fotos img:first-child { grid-column: 1 / -1; grid-row: auto; }
-  .wimpel { gap: 26px 12px; }
-  .wimpel .stoff { min-height: 165px; padding: 18px 10px 40px; }
-  .wimpel li::before { left: -6px; right: -6px; }
-  .wimpel b { font-size: 17px; }
+  .wimpel { gap: 18px 14px; }
+  .wimpelwand { padding: 22px 12px 28px; border-radius: 12px; }
   .daumen { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); background: rgba(255,253,248,.97); border-top: 1px solid var(--linie); box-shadow: 0 -6px 20px rgba(0,0,0,.08); }
   .daumen .btn { min-height: 50px; font-size: 16px; padding: 0 10px; }
 }
